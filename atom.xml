@@ -3,11 +3,11 @@
   <title>chargo blog</title>
   
   <subtitle>我的博客</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://chargoyao.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://chargoyao.github.io/"/>
   <updated>2020-09-03T16:41:53.432Z</updated>
-  <id>http://example.com/</id>
+  <id>https://chargoyao.github.io/</id>
   
   <author>
     <name>chargo yao</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>function program</title>
-    <link href="http://example.com/2020/09/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://example.com/2020/09/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</id>
+    <link href="https://chargoyao.github.io/2020/09/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://chargoyao.github.io/2020/09/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-09-03T15:57:21.000Z</published>
     <updated>2020-09-03T16:41:53.432Z</updated>
     
@@ -33,17 +33,17 @@
     
     
     
-    <category term="函数式编程" scheme="http://example.com/categories/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    <category term="函数式编程" scheme="https://chargoyao.github.io/categories/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
     
     
-    <category term="前端" scheme="http://example.com/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="前端" scheme="https://chargoyao.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2020/09/03/hello-world/"/>
-    <id>http://example.com/2020/09/03/hello-world/</id>
+    <link href="https://chargoyao.github.io/2020/09/03/hello-world/"/>
+    <id>https://chargoyao.github.io/2020/09/03/hello-world/</id>
     <published>2020-09-03T14:59:53.720Z</published>
     <updated>2020-09-03T14:59:53.720Z</updated>
     
