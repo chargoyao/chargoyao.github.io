@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     
     <title>
-        归档: 2020 | chargo blog
+        tags | chargo blog
     </title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
@@ -44,7 +44,7 @@
                 </li>
             
                 <li class="menu-item">
-                    <a class="active"
+                    <a class=""
                        href="/archives"
                     >
                         归档
@@ -60,7 +60,7 @@
                 </li>
             
                 <li class="menu-item">
-                    <a class=""
+                    <a class="active"
                        href="/tags"
                     >
                         标签
@@ -83,7 +83,7 @@
                 </li>
             
                 <li class="drawer-menu-item">
-                    <a class="active"
+                    <a class=""
                        href="/archives">归档</a>
                 </li>
             
@@ -93,7 +93,7 @@
                 </li>
             
                 <li class="drawer-menu-item">
-                    <a class=""
+                    <a class="active"
                        href="/tags">标签</a>
                 </li>
             
@@ -113,39 +113,26 @@
 
             <div class="main-content-left">
                 
-                    <div class="fade-in-down-animation">
-    <div class="archive-container ">
-        
-<div class="archive-list-container">
-    
-        <section class="archive-item">
-            <div class="archive-item-header">
-                <span class="archive-year">2020</span>
-                <span class="archive-year-post-count">[2]</span>
-            </div>
-            <ul class="article-list">
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2020/09/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"
-                        >function program</a>
-                        <span class="article-date">09-03</span>
-                    </li>
-                
-                    <li class="article-item">
-                        <a class="article-title"
-                           href="/2020/09/03/hello-world/"
-                        >Hello World</a>
-                        <span class="article-date">09-03</span>
-                    </li>
-                
-            </ul>
-        </section>
-    
-</div>
+                    @require "../common/magic-theme.styl";
 
-    </div>
-</div>
+.tagcloud-container {
+
+  background: var(--background-color);
+
+  magic-container(1.005, 1.01, 30px);
+
+  .tagcloud-content {
+
+    text-align: justify;
+    font-size: 1.2em;
+
+    a {
+      padding: 8px 6px;
+      display: inline-block;
+    }
+  }
+}
+
 
                 
 
