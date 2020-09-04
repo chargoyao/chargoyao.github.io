@@ -3479,9 +3479,6 @@ input.search-input::-webkit-search-cancel-button {
     font-size: 1.4em;
   }
 }
-.night-code-theme .markdown-body p {
-  color: #45434a;
-}
 .markdown-body blockquote {
   border-left: 5px solid var(--third-text-color);
   margin: 20px 0;
@@ -3490,7 +3487,6 @@ input.search-input::-webkit-search-cancel-button {
 }
 .markdown-body p {
   line-height: 2em;
-  color: #c7c4ce;
 }
 .markdown-body a {
   color: #2050ff;
