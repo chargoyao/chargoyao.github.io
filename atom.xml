@@ -6,7 +6,7 @@
   <link href="https://chargoyao.github.io/atom.xml" rel="self"/>
   
   <link href="https://chargoyao.github.io/"/>
-  <updated>2020-09-04T16:09:32.991Z</updated>
+  <updated>2020-09-04T16:45:50.839Z</updated>
   <id>https://chargoyao.github.io/</id>
   
   <author>
@@ -17,53 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>重来读后感</title>
-    <link href="https://chargoyao.github.io/2020/09/04/%E9%87%8D%E6%9D%A5%E8%AF%BB%E5%90%8E%E6%84%9F/"/>
-    <id>https://chargoyao.github.io/2020/09/04/%E9%87%8D%E6%9D%A5%E8%AF%BB%E5%90%8E%E6%84%9F/</id>
-    <published>2020-09-03T17:27:52.000Z</published>
-    <updated>2020-09-04T16:09:32.991Z</updated>
+    <title>react hook 4 tips</title>
+    <link href="https://chargoyao.github.io/2020/09/05/react-hook-4-tips/"/>
+    <id>https://chargoyao.github.io/2020/09/05/react-hook-4-tips/</id>
+    <published>2020-09-04T16:45:10.000Z</published>
+    <updated>2020-09-04T16:45:50.839Z</updated>
     
-    <content type="html"><![CDATA[<div style="height: 2000px;">    jack</div>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;div style=&quot;height: 2000px;&quot;&gt;
-    jack
-&lt;/div&gt;
-</summary>
-      
-    
-    
-    
-    <category term="book" scheme="https://chargoyao.github.io/categories/book/"/>
-    
-    
-    <category term="book" scheme="https://chargoyao.github.io/tags/book/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>function program</title>
-    <link href="https://chargoyao.github.io/2020/09/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/"/>
-    <id>https://chargoyao.github.io/2020/09/03/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2/</id>
-    <published>2020-09-03T15:57:21.000Z</published>
-    <updated>2020-09-04T15:28:03.964Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="你好啊"><a href="#你好啊" class="headerlink" title="你好啊"></a>你好啊</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="React-hook的一些提示"><a href="#React-hook的一些提示" class="headerlink" title="React hook的一些提示"></a>React hook的一些提示</h1>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;你好啊&quot;&gt;&lt;a href=&quot;#你好啊&quot; class=&quot;headerlink&quot; title=&quot;你好啊&quot;&gt;&lt;/a&gt;你好啊&lt;/h3&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;React-hook的一些提示&quot;&gt;&lt;a href=&quot;#React-hook的一些提示&quot; class=&quot;headerlink&quot; title=&quot;React hook的一些提示&quot;&gt;&lt;/a&gt;React hook的一些提示&lt;/h1&gt;</summary>
       
     
     
     
-    <category term="函数式编程" scheme="https://chargoyao.github.io/categories/%E5%87%BD%E6%95%B0%E5%BC%8F%E7%BC%96%E7%A8%8B/"/>
+    <category term="frontend" scheme="https://chargoyao.github.io/categories/frontend/"/>
     
     
-    <category term="前端" scheme="https://chargoyao.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    <category term="react" scheme="https://chargoyao.github.io/tags/react/"/>
     
   </entry>
   
