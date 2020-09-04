@@ -199,7 +199,7 @@
             repo: 'comments',
             owner: 'chargoyao',
             admin: ['chargoyao'],
-            id: location.pathname,
+            id: decodeURI(location.pathname),
             language: 'zh-CN'
         })
         gitalk.render('gitalk-container')
