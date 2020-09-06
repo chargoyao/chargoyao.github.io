@@ -5,7 +5,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const navItems = postTocWrap.querySelectorAll('.post-toc li');
 
     if (navItems.length > 0) {
-
         const sections = [...navItems].map(element => {
             var link = element.querySelector('a.nav-link');
             // TOC item animation navigate.
