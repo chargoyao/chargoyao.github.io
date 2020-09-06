@@ -6,7 +6,7 @@
   <link href="https://chargoyao.github.io/atom.xml" rel="self"/>
   
   <link href="https://chargoyao.github.io/"/>
-  <updated>2020-09-04T16:45:50.839Z</updated>
+  <updated>2020-09-06T15:41:56.104Z</updated>
   <id>https://chargoyao.github.io/</id>
   
   <author>
@@ -17,26 +17,26 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>react hook 4 tips</title>
-    <link href="https://chargoyao.github.io/2020/09/05/react-hook-4-tips/"/>
-    <id>https://chargoyao.github.io/2020/09/05/react-hook-4-tips/</id>
-    <published>2020-09-04T16:45:10.000Z</published>
-    <updated>2020-09-04T16:45:50.839Z</updated>
+    <title>tree shaking</title>
+    <link href="https://chargoyao.github.io/2020/09/06/tree-shaking/"/>
+    <id>https://chargoyao.github.io/2020/09/06/tree-shaking/</id>
+    <published>2020-09-06T14:30:11.000Z</published>
+    <updated>2020-09-06T15:41:56.104Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="React-hook的一些提示"><a href="#React-hook的一些提示" class="headerlink" title="React hook的一些提示"></a>React hook的一些提示</h1>]]></content>
+    <content type="html"><![CDATA[<h1 id="Tree-Shaking"><a href="#Tree-Shaking" class="headerlink" title="Tree Shaking"></a>Tree Shaking</h1><p>webpack通过借鉴rollup开始在webpack2中支持Tree Shaking，在webpack4中是默认支持Tree Shaking，如果你在打包的时候设置mode为production，webpack就会默认开启Tree Shaking。<br>使用方法：<br>1.webpack mode属性设置为production<br>2..babelrc里设置modules: false</p><h2 id="什么是Tree-Shaking-摇树优化？翻译起来感觉实在是怪"><a href="#什么是Tree-Shaking-摇树优化？翻译起来感觉实在是怪" class="headerlink" title="什么是Tree Shaking?(摇树优化？翻译起来感觉实在是怪)"></a>什么是Tree Shaking?(摇树优化？翻译起来感觉实在是怪)</h2><p>一个模块中可能有多个方法，在这种情况下，只要其中的方法使用到了，则整个文件都被会打包到bundle里面去，<br>tree shaking就是只把用到的方法打包进bundle，没用到的方法会被remove掉。</p><p>要了解tree Shaking的原理首先必须要提的是Dead Code Elimination(死码消除)，DCE是一种编译优化技术，它的用途是移除对程序运行结果没有任何影响的代码。</p><h2 id="哪些是对于程序运行没有任何影响的代码呢？"><a href="#哪些是对于程序运行没有任何影响的代码呢？" class="headerlink" title="哪些是对于程序运行没有任何影响的代码呢？"></a>哪些是对于程序运行没有任何影响的代码呢？</h2><p>1.代码不会被执行，且无法到达，比如：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">false</span>) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;unused code&#x27;</span>);  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>2.代码的执行结果没有被用到<br>比如你写了一个函数，这个函数返回一个结果，这个结果的值在代码中并未使用到，或者你调用这个函数赋值给一个变量，但是变量的值却没有在代码中使用。<br>3.死变量<br>你写了一系列的代码去改变你声明的变量的值，但是最后变量并没有在代码中被用到。</p><p>以上的情况统称为DCE，tree Shaking也是利用了这些特性从而来判断哪些代码是dead code从而删除它。</p><h2 id="Tree-Shaking的原理"><a href="#Tree-Shaking的原理" class="headerlink" title="Tree Shaking的原理"></a>Tree Shaking的原理</h2><p>tree shaking其实就是利用了ES module的特点来进行shake<br>1.只能作为模块顶层的语句出现<br>2.import的模块名字只能是字符串常量，也就是说你不能动态的去设置import的内容<br>3.import的binding是不可变的<br><strong>显然commonJS是不具备ES6的特点的</strong>，commonJS是可以动态的require。在不同的条件下去require不同的模块。Tree shaking最本质的是对模块的代码进行静态的分析,因此Tree Shaking需要ES6这样的模块特性。<br>也就是说在代码编译阶段就要确定哪些代码是你需要的或者必须的，而不能在代码运行的时候再进行分析哪些代码是需要的。Tree shaking知道哪些代码没用之后会增加注释和标记，然后会在uglify阶段进行remove的操作。</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h1 id=&quot;React-hook的一些提示&quot;&gt;&lt;a href=&quot;#React-hook的一些提示&quot; class=&quot;headerlink&quot; title=&quot;React hook的一些提示&quot;&gt;&lt;/a&gt;React hook的一些提示&lt;/h1&gt;</summary>
+    <summary type="html">&lt;h1 id=&quot;Tree-Shaking&quot;&gt;&lt;a href=&quot;#Tree-Shaking&quot; class=&quot;headerlink&quot; title=&quot;Tree Shaking&quot;&gt;&lt;/a&gt;Tree Shaking&lt;/h1&gt;&lt;p&gt;webpack通过借鉴rollup开始在webpack2中支</summary>
       
     
     
     
-    <category term="frontend" scheme="https://chargoyao.github.io/categories/frontend/"/>
+    <category term="webpack" scheme="https://chargoyao.github.io/categories/webpack/"/>
     
     
-    <category term="react" scheme="https://chargoyao.github.io/tags/react/"/>
+    <category term="tree shaking" scheme="https://chargoyao.github.io/tags/tree-shaking/"/>
     
   </entry>
   
