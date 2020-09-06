@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>chargo blog</title>
+  <title>chargoyao</title>
   
-  <subtitle>我的博客</subtitle>
+  <subtitle>姚东博客</subtitle>
   <link href="https://chargoyao.github.io/atom.xml" rel="self"/>
   
   <link href="https://chargoyao.github.io/"/>
