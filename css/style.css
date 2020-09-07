@@ -3523,6 +3523,7 @@ input.search-input::-webkit-search-cancel-button {
   font-weight: 600;
   margin-block-start: 1.1em;
   margin-block-end: 1.1em;
+  line-height: 1.2;
 }
 .markdown-body h2 {
   color: var(--second-text-color);
@@ -3530,6 +3531,7 @@ input.search-input::-webkit-search-cancel-button {
   font-weight: 600;
   margin-block-start: 1.1em;
   margin-block-end: 1.1em;
+  line-height: 1.2;
 }
 .markdown-body h3 {
   color: var(--second-text-color);
@@ -3537,6 +3539,7 @@ input.search-input::-webkit-search-cancel-button {
   font-weight: 550;
   margin-block-start: 1em;
   margin-block-end: 1em;
+  line-height: 1.2;
 }
 .markdown-body h4 {
   color: var(--second-text-color);
@@ -3544,6 +3547,7 @@ input.search-input::-webkit-search-cancel-button {
   font-weight: 550;
   margin-block-start: 1em;
   margin-block-end: 1em;
+  line-height: 1.2;
 }
 .markdown-body h5 {
   color: var(--second-text-color);
