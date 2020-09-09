@@ -8,6 +8,10 @@
 	font-weight:normal;
 	font-style:normal
 }
+@font-face {
+	font-family: 'ubuntu';
+	src: url('../fonts/Ubuntu-B.ttf');
+}
 .fa {
 	display:inline-block;
 	font:normal normal normal 14px/1 FontAwesome;
@@ -1798,7 +1802,7 @@ body {
   padding: 0;
   color: var(--normal-text-color);
   background: var(--magic-background-color);
-  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: ubuntu, Arial, Microsoft YaHei;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
@@ -3636,7 +3640,7 @@ pre,
 }
 pre,
 code {
-  font-family: "Source Code Pro", consolas, Menlo;
+  font-family: ubuntu, Microsoft YaHei;
 }
 code {
   padding: 5px;

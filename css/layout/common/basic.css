@@ -135,7 +135,7 @@ body {
   padding: 0;
   color: var(--normal-text-color);
   background: var(--magic-background-color);
-  font-family: Optima-Regular, Optima, PingFangSC-light, PingFangTC-light, 'PingFang SC', Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  font-family: ubuntu, Arial, Microsoft YaHei;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;

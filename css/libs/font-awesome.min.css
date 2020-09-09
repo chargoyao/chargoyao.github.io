@@ -8,6 +8,10 @@
 	font-weight:normal;
 	font-style:normal
 }
+@font-face {
+	font-family: 'ubuntu';
+	src: url('../fonts/Ubuntu-B.ttf');
+}
 .fa {
 	display:inline-block;
 	font:normal normal normal 14px/1 FontAwesome;
