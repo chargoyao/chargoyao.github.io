@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        react useEffect | chargoyao
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/chargoyao.github.io/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/chargoyao.github.io/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"chargoyao.github.io","root":"/chargoyao.github.io/","localsearch":{"enable":true},"themeInfo":{"name":"ILS","version":"1.2.1","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/chargoyao.github.io/atom.xml" title="chargoyao" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-template">
+    <div class="page-top">
+        <header class="header-wrapper">
+
+    <div class="header-progress"></div>
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            chargoyao
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/"
+                    >
+                        首页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/archives"
+                    >
+                        归档
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/categories"
+                    >
+                        分类
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/tags"
+                    >
+                        标签
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-middle ">
+
+        <main class="main-content normal-code-theme">
+
+            <div class="main-content-left">
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">react useEffect</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2020-09-08 23:46:21
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/chargoyao.github.io/categories/react/">react</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/chargoyao.github.io/tags/react-hook/">react hook</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+        <i class="fa fa-book"></i> <span>958 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+        <i class="fa fa-clock-o"></i> <span>4 分钟</span>
+        </span>
+    
+</div>
+
+        </div>
+
+        <div class="article-content markdown-body">
+            <h1 id="Single-Responsiblility"><a href="#Single-Responsiblility" class="headerlink" title="Single Responsiblility"></a>Single Responsiblility</h1><p>在开发基于hook的react运用的时候可以在Function component中使用多个useEffect,既然是基于function component来组织react代码，有一个基本原则还是需要去留意的，<strong>它就是单一职责</strong>。<br>将useEffect拆分为更小的职责更单一的函数，有利于防止&#39;意外&#39;的发生，尤其在使用dependency array的时候。<br>举个的例子：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Hello = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [name, setName] = useState&lt;<span class="built_in">string</span>&gt;(<span class="string">&quot;smith&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [age, setAge] = useState&lt;<span class="built_in">number</span>&gt;(<span class="number">20</span>);</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;name changed&quot;</span>);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;age changed&quot;</span>);</span><br><span class="line">  &#125;, [name, age]);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleChangeName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setName(<span class="string">&quot;joyce&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleChangeAge</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setAge(<span class="number">40</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      name: &lt;span&gt;&#123;name&#125;&lt;/span&gt;</span><br><span class="line">      age: &lt;span&gt;&#123;age&#125;&lt;/span&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleChangeName&#125;&gt;change name&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleChangeAge&#125;&gt;change age&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>如上代码，当name和age任何一个值改变的时候，都会触发更新(例子中表现为两个console.log都会被打印出来)，这显然是不太妥当的写法。应该只在name改变的时候打印&#39;name changed&#39;age改变的时候打印&#39;age changed&#39;。<br>所以应该把useEffect拆分为更小且职责更单一的函数。如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> Hello = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [name, setName] = useState&lt;<span class="built_in">string</span>&gt;(<span class="string">&quot;smith&quot;</span>);</span><br><span class="line">  <span class="keyword">const</span> [age, setAge] = useState&lt;<span class="built_in">number</span>&gt;(<span class="number">20</span>);</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;name changed&quot;</span>);</span><br><span class="line">  &#125;, [name]);</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&quot;age changed&quot;</span>);</span><br><span class="line">    <span class="comment">// console.log(&quot;age changed&quot;);</span></span><br><span class="line">  &#125;, [age]);</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleChangeName</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setName(<span class="string">&quot;joyce&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleChangeAge</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    setAge(<span class="number">40</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      name: &lt;span&gt;&#123;name&#125;&lt;/span&gt;</span><br><span class="line">      age: &lt;span&gt;&#123;age&#125;&lt;/span&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleChangeName&#125;&gt;change name&lt;/button&gt;</span><br><span class="line">      &lt;button onClick=&#123;handleChangeAge&#125;&gt;change age&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><strong>在上述例子中，如果name和age的状态在需求开发中是两个完全独立的，更好的方式，应该是将name的状态和age状态，分别独立出来写成custom hook的形式。这样代码在可读性和维护性上也会更好。</strong></p>
+<h1 id="在useEffect中使用条件判断语句"><a href="#在useEffect中使用条件判断语句" class="headerlink" title="在useEffect中使用条件判断语句"></a>在useEffect中使用条件判断语句</h1><p>当你在useEffect中使用条件语句的时候，有一些细节问题可能你并未能注意到。来举个例子：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Hello = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [num, setNum] = useState&lt;<span class="built_in">number</span>&gt;(<span class="number">1</span>);</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (num &lt; <span class="number">3</span>) &#123;</span><br><span class="line">      <span class="comment">// num小于5的时候执行某些操作。</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;设置某些操作或者状态&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 在num更新更新之后，清除上一次的操作或者状态。</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;clear&quot;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;, [num]);</span><br><span class="line">  <span class="keyword">const</span> handleClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setNum(num + <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &lt;div onClick=&#123;handleClick&#125;&gt;<span class="built_in">number</span>: &#123;num&#125;&lt;/div&gt;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Hello;</span><br></pre></td></tr></table></figure>
+<p>如上示例代码，在每次点击div元素的时候num状态进行累加，当num小于3的时候执行某些状态的设置操作等等，这里要表达的需求大致是，当num小于3的时候执行订阅或者状态的设置，随后在num更新之后清除上一次的订阅或者状态设置。<br>可是以上示例的代码虽然在表现上符合我们的预期，但是，在后续累加大于等于3之后useEffect返回的函数都会被执行。这显然是存在代码冗余执行的问题。所以在useEffect面临条件判断的场景下，可以显示return来防止此类问题。如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Hello = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> [num, setNum] = useState&lt;<span class="built_in">number</span>&gt;(<span class="number">1</span>);</span><br><span class="line">  useEffect(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (num &gt;= <span class="number">3</span>) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 在num更新更新之后，清除上一次的操作或者状态。</span></span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&quot;clear&quot;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;, [num]);</span><br><span class="line">  <span class="keyword">const</span> handleClick = <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    setNum(num + <span class="number">1</span>);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &lt;div onClick=&#123;handleClick&#125;&gt;<span class="built_in">number</span>: &#123;num&#125;&lt;/div&gt;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Hello;</span><br></pre></td></tr></table></figure>
+<p>这样当num大于等于3之后，useEffect将不会执行相关的&#39;清理&#39;操作，更符合预期效果。</p>
+
+        </div>
+
+        <div class="article-nav">
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/chargoyao.github.io/2020/09/06/tree-shaking/"
+                    >
+                        <span class="post-nav-title-item">tree shaking</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '50694cc306471b023062',
+            clientSecret: '312591d9ef38616c9de39ca5b18897ff5ac168b0',
+            repo: 'comments',
+            owner: 'chargoyao',
+            admin: ['chargoyao'],
+            id: decodeURI(location.pathname),
+            language: 'zh-CN'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+    <div class="article-toc-container fade-in-down-animation">
+        <div class="article-toc">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Single-Responsiblility"><span class="nav-number">1.</span> <span class="nav-text">Single Responsiblility</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%9C%A8useEffect%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%9D%A1%E4%BB%B6%E5%88%A4%E6%96%AD%E8%AF%AD%E5%8F%A5"><span class="nav-number">2.</span> <span class="nav-text">在useEffect中使用条件判断语句</span></a></li></ol>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+                
+
+            </div>
+
+            
+
+        </main>
+
+        <div class="sidebar-tools">
+            <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/chargoyao.github.io/js/local-search.js"></script>
+
+        
+        
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <div class="scroll-to-top">
+                <ul>
+                    <li>
+                        <span class="scroll-percent">
+                            <i class="fa fa-caret-up"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        
+    </div>
+
+    <div class="page-bottom">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">chargo yao</a>
+        </div>
+<!--        <div class="theme-info info-item">-->
+<!--            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a-->
+<!--                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v1.2.1</a>-->
+<!--        </div>-->
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        访问人数 <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        总访问量 <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+</div>
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/chargoyao.github.io/js/main.js"></script>
+<script src="/chargoyao.github.io/js/header-shrink.js"></script>
+<script src="/chargoyao.github.io/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/chargoyao.github.io/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/chargoyao.github.io/js/code-copy.js"></script>
+
+    
+
+    
+        
+<script src="/chargoyao.github.io/lib/anime.min.js"></script>
+<script src="/chargoyao.github.io/js/toc.js"></script>
+
+    
+
+
+
+
+</body>
+</html>
