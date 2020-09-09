@@ -10,7 +10,7 @@
 }
 @font-face {
 	font-family: 'ubuntu';
-	src: url('../fonts/Ubuntu-B.ttf');
+	src: url('../fonts/Ubuntu-B.ttf?v=1.0.0');
 }
 .fa {
 	display:inline-block;
