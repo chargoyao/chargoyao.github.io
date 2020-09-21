@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        Javascript function | chargoyao
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/chargoyao.github.io/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/chargoyao.github.io/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"chargoyao.github.io","root":"/chargoyao.github.io/","localsearch":{"enable":true},"themeInfo":{"name":"ILS","version":"1.2.1","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/chargoyao.github.io/atom.xml" title="chargoyao" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-template">
+    <div class="page-top">
+        <header class="header-wrapper">
+
+    <div class="header-progress"></div>
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            chargoyao
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/"
+                    >
+                        首页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/archives"
+                    >
+                        归档
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/categories"
+                    >
+                        分类
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/tags"
+                    >
+                        标签
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-middle ">
+
+        <main class="main-content normal-code-theme">
+
+            <div class="main-content-left">
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">Javascript function</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2020-09-08 15:42:43
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/chargoyao.github.io/categories/functional-programming/">functional programming</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/chargoyao.github.io/tags/javascript/">javascript</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+        <i class="fa fa-book"></i> <span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+        <i class="fa fa-clock-o"></i> <span>6 分钟</span>
+        </span>
+    
+</div>
+
+        </div>
+
+        <div class="article-content markdown-body">
+            <p>Javascript语言支持functional programming,其中一个主要的原因是函数在js中是作为first-class citizens存在的。在js中函数究竟有哪些用法？</p>
+<h1 id="Pure-Function"><a href="#Pure-Function" class="headerlink" title="Pure Function"></a>Pure Function</h1><p>在函数式编程中其中有一个很重要的概念，那就是纯函数，究竟什么样的函数才能称为纯函数呢？<br>纯函数应该满足下面两个条件：<br>1.给定相同的参数总是返回相同的结果。<br>2.在函数执行期间不存在side-effect(副作用)。</p>
+<p>例子：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params">a: <span class="built_in">number</span></span>) </span>&#123; <span class="keyword">return</span> <span class="number">2</span> * a + <span class="number">10</span>; &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>当a的值是相同的时候，add函数总是返回相同的值，并且函数的外部不存在任何的side-effect。(add函数的执行并不依赖于任何外部环境的变量)。所以这里的add函数是个pure function。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">    </span><br><span class="line"><span class="keyword">const</span> num: <span class="function">() =&gt;</span> <span class="built_in">number</span> = (<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">let</span> i = <span class="number">0</span>; </span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    i++;</span><br><span class="line">    <span class="keyword">return</span> i;</span><br><span class="line">  &#125; </span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+<p>此处的num函数在每次调用的时候都返回不同的值，因此它不是一个纯函数。</p>
+<h1 id="Why-pure-function"><a href="#Why-pure-function" class="headerlink" title="Why pure function?"></a>Why pure function?</h1><p>为什么要有纯函数的概念呢？它的优点在哪里？纯函数主要有以下优点：</p>
+<h2 id="纯函数可以让代码更易测试"><a href="#纯函数可以让代码更易测试" class="headerlink" title="纯函数可以让代码更易测试"></a>纯函数可以让代码更易测试</h2><p>比如下面这个具有副作用的函数</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> outsideVar = <span class="number">10</span>;</span><br><span class="line"><span class="comment">// calculateValue函数依赖外部环境变量</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> calculateValue = <span class="function">(<span class="params">value: <span class="built_in">number</span></span>) =&gt;</span> value * <span class="number">2</span> + outsideVar;</span><br></pre></td></tr></table></figure>
+<p>测试代码</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">describe(<span class="string">&#x27;测试不纯的函数&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">  it(<span class="string">&#x27;should be 12&#x27;</span>, <span class="function">() =&gt;</span> &#123;</span><br><span class="line">    expect(calculateValue(<span class="number">1</span>)).toBe(<span class="number">12</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>上面的测试是可以通过，但是假设如果外部环境的变量被改变了的话，这条测试可能就无法测试通过。此时的calculateValue函数就难以测试。如果要修复这样的问题，我们可以通过将外部环境变量移入calculateValue函数中来解决。</p>
+<h2 id="并发执行代码"><a href="#并发执行代码" class="headerlink" title="并发执行代码"></a>并发执行代码</h2><p>由于纯函数并不会改变它的环境，因此纯函数可以并发的执行代码。也就是说你不需要担心同步的问题。当然javascript并没有真正的多线程用来并发的执行代码。但是当你的项目使用了WebWorker之后，你可能会用WebWorker来并发的执行多任务。比如有个非纯函数的代码版本：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> name = <span class="string">&#x27;python&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  name = <span class="string">&#x27;php&#x27;</span>;</span><br><span class="line">  <span class="comment">// other code</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;      </span><br><span class="line">  <span class="keyword">if</span> (name === <span class="string">&#x27;python&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;business logic&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>以上代码假设D1线程执行了foo函数，D2线程执行了bar函数。且D1在D2之前执行，由于二者皆依赖于全局变量，最终的执行结果可能并不会是你想要的。因此可以将上述的两个函数改造为纯函数，移动name变量，如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params">name: <span class="built_in">string</span></span>) </span>&#123;</span><br><span class="line">  name = <span class="string">&#x27;php&#x27;</span>;</span><br><span class="line">  <span class="comment">// other code</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">name: <span class="built_in">string</span></span>) </span>&#123;      </span><br><span class="line">  <span class="keyword">if</span> (name === <span class="string">&#x27;python&#x27;</span>) &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;business logic&#x27;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>现在你可以放心的并发的执行这两个函数了，且不必但是顺序的问题。</p>
+<h1 id="high-order-function"><a href="#high-order-function" class="headerlink" title="high-order function"></a>high-order function</h1><h2 id="什么是高阶函数？"><a href="#什么是高阶函数？" class="headerlink" title="什么是高阶函数？"></a>什么是高阶函数？</h2><p>定义：以一个或者多个函数作为参数，或者函数返回的是一个函数。或者如上两者情况皆有的函数称为高阶函数。<br>借助于高阶函数可以让你的代码更具灵活性，同时也更加有效和精炼。<br>打个比方，比如有一个正整数的数组，现在需要生成一个新的数组，且数组的元素是原来数组元素值的两倍。<br>在不使用高阶函数的时候你可能会这么写代码：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; arr1.length; i++) &#123;</span><br><span class="line">  arr2.push(arr1[i] * <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在js中有个操作数组对象的方法map，map方法的参数传入指定的函数会返回一个新的数组，这个map其实就是一个high-order function。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>];</span><br><span class="line"><span class="keyword">const</span> arr2 = arr1.map(<span class="function">(<span class="params">item: <span class="built_in">number</span></span>) =&gt;</span> <span class="built_in">number</span> * <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>通过使用这样的高阶函数可以有效增强代码的可读性，这样的代码更像是一种声明式编程的范式，而非命令式编程。</p>
+<h1 id="Cache-Function"><a href="#Cache-Function" class="headerlink" title="Cache Function"></a>Cache Function</h1><p>比如有如下需要一定计算开销的pure function。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">computedValue</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// 这里有开销大的计算</span></span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;computing&#x27;</span>);</span><br><span class="line">  <span class="keyword">return</span> <span class="string">&#x27;computed value&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>利用pure function相同的参数总是返回相同结果的特性，就可以缓存函数的计算结果，如果函数的参数是相同的就可以从内存中直接返回结果，而无需再一次执行函数。从而提高代码执行的性能，其实也就是利用空间换时间的概念。<br>通过如下的缓存函数可以缓存pure function的计算结果。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">cacheWrapper</span>(<span class="params">fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">const</span> cacheMap = &#123;&#125;;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">cachedFn</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> cacheMap[str] || (cacheMap[str] = fn(str));</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="Lazy-Function"><a href="#Lazy-Function" class="headerlink" title="Lazy Function"></a>Lazy Function</h1><p>有时候函数体会包含一些条件判断语句，有时候这些条件判断语句只需要执行一次。可以在函数首次执行完毕之后，删除这些判断语句从而达到提高函数执行性能的目的。在之后函数再一次执行的时候则不需要经过条件语句的判断，这样的技术称为lazy function。<br>举个例子，在你需要兼容老式的IE浏览器的时候，可能会写如下的兼容代码</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params">type, element, fn</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</span><br><span class="line">    element.addEventListener(type, fn, <span class="literal">false</span>);</span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</span><br><span class="line">    element.attachEvent(<span class="string">&#x27;on&#x27;</span> + type, fn);</span><br><span class="line">  &#125; </span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>每次调用这个addEvent函数的时候，都要执行一遍if语句的条件判断，通过lazy function技术可以这么做：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEvent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">window</span>.addEventListener) &#123;</span><br><span class="line">    addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">type, element, fn</span>) </span>&#123;</span><br><span class="line">      element.addEvenListener(type, fn, <span class="literal">false</span>);</span><br><span class="line">    &#125; </span><br><span class="line">  &#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">window</span>.attachEvent) &#123;</span><br><span class="line">    addEvent = <span class="function"><span class="keyword">function</span>(<span class="params">type, element, fn</span>) </span>&#123;</span><br><span class="line">      element.attachEvent(<span class="string">&#x27;on&#x27;</span> + type, fn);</span><br><span class="line">    &#125; </span><br><span class="line">  &#125;</span><br><span class="line">  addEvent(type, element, fn);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>对于一些函数中的条件判断语句只需要执行一次的场景，可以通过lazy function来进行优化，第一次函数中的条件判断语句被执行之后，原函数的函数体被新的无条件判断语句的函数覆盖。</p>
+
+        </div>
+
+        <div class="article-nav">
+            
+                <div class="article-prev">
+                    <a class="prev btn"
+                       rel="prev"
+                       href="/chargoyao.github.io/2020/09/08/react-useEffect/"
+                    >
+                        <i class="fa fa-chevron-left"></i> <span class="post-nav-title-item">react useEffect</span><span class="post-nav-item">上一篇</span>
+                    </a>
+                </div>
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/chargoyao.github.io/2020/09/06/tree-shaking/"
+                    >
+                        <span class="post-nav-title-item">tree shaking</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '50694cc306471b023062',
+            clientSecret: '312591d9ef38616c9de39ca5b18897ff5ac168b0',
+            repo: 'comments',
+            owner: 'chargoyao',
+            admin: ['chargoyao'],
+            id: decodeURI(location.pathname),
+            language: 'zh-CN'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+    <div class="article-toc-container fade-in-down-animation">
+        <div class="article-toc">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Pure-Function"><span class="nav-number">1.</span> <span class="nav-text">Pure Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Why-pure-function"><span class="nav-number">2.</span> <span class="nav-text">Why pure function?</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BA%AF%E5%87%BD%E6%95%B0%E5%8F%AF%E4%BB%A5%E8%AE%A9%E4%BB%A3%E7%A0%81%E6%9B%B4%E6%98%93%E6%B5%8B%E8%AF%95"><span class="nav-number">2.1.</span> <span class="nav-text">纯函数可以让代码更易测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%B9%B6%E5%8F%91%E6%89%A7%E8%A1%8C%E4%BB%A3%E7%A0%81"><span class="nav-number">2.2.</span> <span class="nav-text">并发执行代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#high-order-function"><span class="nav-number">3.</span> <span class="nav-text">high-order function</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%AB%98%E9%98%B6%E5%87%BD%E6%95%B0%EF%BC%9F"><span class="nav-number">3.1.</span> <span class="nav-text">什么是高阶函数？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cache-Function"><span class="nav-number">4.</span> <span class="nav-text">Cache Function</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Lazy-Function"><span class="nav-number">5.</span> <span class="nav-text">Lazy Function</span></a></li></ol>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+                
+
+            </div>
+
+            
+
+        </main>
+
+        <div class="sidebar-tools">
+            <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/chargoyao.github.io/js/local-search.js"></script>
+
+        
+        
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <div class="scroll-to-top">
+                <ul>
+                    <li>
+                        <span class="scroll-percent">
+                            <i class="fa fa-caret-up"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        
+    </div>
+
+    <div class="page-bottom">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">chargo yao</a>
+        </div>
+<!--        <div class="theme-info info-item">-->
+<!--            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a-->
+<!--                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v1.2.1</a>-->
+<!--        </div>-->
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        访问人数 <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        总访问量 <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+</div>
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/chargoyao.github.io/js/main.js"></script>
+<script src="/chargoyao.github.io/js/header-shrink.js"></script>
+<script src="/chargoyao.github.io/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/chargoyao.github.io/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/chargoyao.github.io/js/code-copy.js"></script>
+
+    
+
+    
+        
+<script src="/chargoyao.github.io/lib/anime.min.js"></script>
+<script src="/chargoyao.github.io/js/toc.js"></script>
+
+    
+
+
+
+
+</body>
+</html>
