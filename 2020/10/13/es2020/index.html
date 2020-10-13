@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    
+    <title>
+        es2020新特性 | chargoyao
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <link rel="shortcut icon" href="/chargoyao.github.io/images/favicon.png">
+    
+    
+<link rel="stylesheet" href="/chargoyao.github.io/css/style.css">
+
+    <script id="hexo-configurations">
+    let CONFIG = {"hostname":"chargoyao.github.io","root":"/chargoyao.github.io/","localsearch":{"enable":true},"themeInfo":{"name":"ILS","version":"1.2.1","author":"XPoet","repository":"https://github.com/XPoet/hexo-theme-ils"},"path":"search.json"};
+  </script>
+<meta name="generator" content="Hexo 5.1.1"><link rel="alternate" href="/chargoyao.github.io/atom.xml" title="chargoyao" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="page-template">
+    <div class="page-top">
+        <header class="header-wrapper">
+
+    <div class="header-progress"></div>
+
+    <div class="header-content">
+
+        <a class="logo-title" href="/">
+            chargoyao
+        </a>
+
+        <ul class="menu-list">
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/"
+                    >
+                        首页
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/archives"
+                    >
+                        归档
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/categories"
+                    >
+                        分类
+                    </a>
+                </li>
+            
+                <li class="menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/tags"
+                    >
+                        标签
+                    </a>
+                </li>
+            
+        </ul>
+
+        <div class="menu-bar">
+            <div class="menu-bar-middle"></div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item">
+                    <a class=""
+                       href="/chargoyao.github.io/tags">标签</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+    </div>
+
+    <div class="page-middle ">
+
+        <main class="main-content normal-code-theme">
+
+            <div class="main-content-left">
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <h3><a class="title-hover-animation">es2020新特性</a></h3>
+        </div>
+
+        <div class="meta-info">
+            <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fa fa-calendar-o"></i> 2020-10-13 00:52:57
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fa fa-folder"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/chargoyao.github.io/categories/javascript/">javascript</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fa fa-tags"></i>
+            <ul>
+                
+                    <li>
+                        <a href="/chargoyao.github.io/tags/es2020/">es2020</a>
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fa fa-eye"></i> <span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+    
+        <span class="article-wordcount article-meta-item">
+        <i class="fa fa-book"></i> <span>479 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+        <i class="fa fa-clock-o"></i> <span>2 分钟</span>
+        </span>
+    
+</div>
+
+        </div>
+
+        <div class="article-content markdown-body">
+            <p>自从2015年发布了ES6之后，每年TC39都会发布新版的ECMA规范，ECMA2020是发布的第十一个ECMA版本。</p>
+<h1 id="globalThis"><a href="#globalThis" class="headerlink" title="globalThis"></a>globalThis</h1><p>如今的javascript语言几乎无所不能，从web端到后端到客户端都能通吃。不同的环境使用的是不一样的对象。<br>比如：浏览器使用的是window，nodejs使用的是global，而Service Worker使用的是self。而现在一般的做法都会通过一个通用函数来判断不同平台。<br>新的ECMA2020中，则将此全局对象统一收敛为<code>globalThis</code>；</p>
+<h1 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled()"></a>Promise.allSettled()</h1><p>Promose.allSettled()返回一个promise,此方法的参数为一个数组的promise，数组中的每一个promise无论是resolve还是reject，Promise.allSettled()都将进入resovle状态，其then参数为函数status属性的对象。<br>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> res(<span class="string">&#x27;one&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> rej(<span class="string">&#x27;two&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> res(<span class="string">&#x27;three&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.allSettled([p1, p2, p3]).then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data));</span><br></pre></td></tr></table></figure>
+<p>打印如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    status: &#39;fulfilled&#39;, value: &#39;one&#39;, </span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    status: &#39;rejected&#39;, value: &#39;two&#39;, </span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    status: &#39;fulfilled&#39;, value: &#39;three&#39;, </span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>#Nullish联合操作符<br>Nullish联合操作符主要用在对象属性的读取上。类似于&amp;&amp;和||操作符，当操作符的左边为null或者undefined的时候，返回操作符右边的结果。<br>如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> name = data.name ?? <span class="string">&quot;chargo&quot;</span>; <span class="comment">// chargo</span></span><br><span class="line"></span><br><span class="line">data = &#123;<span class="attr">name</span>: <span class="string">&#x27;yao&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line">name = data.name ?? <span class="string">&#x27;yao&#x27;</span>; <span class="comment">// name为yao</span></span><br></pre></td></tr></table></figure>
+<h1 id="Optional-Chaining-Operator"><a href="#Optional-Chaining-Operator" class="headerlink" title="Optional Chaining Operator"></a>Optional Chaining Operator</h1><p>通常读取嵌套对象属性值的时候都需要先判断是否是null或者undefined。然后在进行进一步的代码执行(比如值的读取)。<br>比如：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取DOM</span></span><br><span class="line"><span class="keyword">const</span> ele = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;input[name=age]&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> val = ele &amp;&amp; ele.value;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>在es2020中有了Optional Chaining Operator你可以这么写：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> val = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;input[name=age]&#x27;</span>)?.value;</span><br></pre></td></tr></table></figure>
+<p>如上如果操作符?.左侧返回的是null或者undefined的话将不会执行操作符右侧值的读取。</p>
+
+        </div>
+
+        <div class="article-nav">
+            
+            
+                <div class="article-next">
+                    <a class="next btn"
+                       rel="next"
+                       href="/chargoyao.github.io/2020/09/08/react-useEffect/"
+                    >
+                        <span class="post-nav-title-item">react useEffect</span><span class="post-nav-item">下一篇</span> <i class="fa fa-chevron-right"></i>
+                    </a>
+                </div>
+            
+        </div>
+
+        <div class="comment-container">
+            <div class="comments-container">
+    
+        
+    <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+    <div id="gitalk-container"></div>
+    <script>
+        const gitalk = new Gitalk({
+            clientID: '50694cc306471b023062',
+            clientSecret: '312591d9ef38616c9de39ca5b18897ff5ac168b0',
+            repo: 'comments',
+            owner: 'chargoyao',
+            admin: ['chargoyao'],
+            id: decodeURI(location.pathname),
+            language: 'zh-CN'
+        })
+        gitalk.render('gitalk-container')
+    </script>
+
+    
+</div>
+        </div>
+    </div>
+</div>
+
+    <div class="article-toc-container fade-in-down-animation">
+        <div class="article-toc">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#globalThis"><span class="nav-number">1.</span> <span class="nav-text">globalThis</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Promise-allSettled"><span class="nav-number">2.</span> <span class="nav-text">Promise.allSettled()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Optional-Chaining-Operator"><span class="nav-number">3.</span> <span class="nav-text">Optional Chaining Operator</span></a></li></ol>
+    </div>
+</div>
+        </div>
+    </div>
+
+
+                
+
+            </div>
+
+            
+
+        </main>
+
+        <div class="sidebar-tools">
+            <div class="tools-container">
+    <ul class="tools-list">
+        
+            <li class="search popup-trigger">
+                <i class="fa fa-search"></i>
+            </li>
+            
+<script src="/chargoyao.github.io/js/local-search.js"></script>
+
+        
+        
+        
+            <li class="rss">
+                <a href="/atom.xml" target="_blank"><i class="fa fa-rss"></i></a>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <div class="scroll-to-top">
+                <ul>
+                    <li>
+                        <span class="scroll-percent">
+                            <i class="fa fa-caret-up"></i>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        
+    </div>
+
+    <div class="page-bottom">
+        <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy; 2020 <i class="fa fa-heart-o"></i> <a href="/">chargo yao</a>
+        </div>
+<!--        <div class="theme-info info-item">-->
+<!--            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动 | 主题 <a-->
+<!--                    href="https://github.com/XPoet/hexo-theme-ils" target="_blank">ILS v1.2.1</a>-->
+<!--        </div>-->
+        
+            <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv" style="display: none">
+                        访问人数 <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" style="display: none">
+                        总访问量 <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+    </div>
+</footer>
+
+    </div>
+</div>
+
+    <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-icon">
+            <i class="fa fa-search"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fa fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/chargoyao.github.io/js/main.js"></script>
+<script src="/chargoyao.github.io/js/header-shrink.js"></script>
+<script src="/chargoyao.github.io/js/toggle-mode.js"></script>
+
+
+
+    
+<script src="/chargoyao.github.io/js/scroll-to-top.js"></script>
+
+
+
+
+
+    
+        
+<script src="/chargoyao.github.io/js/code-copy.js"></script>
+
+    
+
+    
+        
+<script src="/chargoyao.github.io/lib/anime.min.js"></script>
+<script src="/chargoyao.github.io/js/toc.js"></script>
+
+    
+
+
+
+
+</body>
+</html>

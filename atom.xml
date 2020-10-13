@@ -6,7 +6,7 @@
   <link href="https://chargoyao.github.io/atom.xml" rel="self"/>
   
   <link href="https://chargoyao.github.io/"/>
-  <updated>2020-09-21T14:13:39.410Z</updated>
+  <updated>2020-10-13T15:18:41.300Z</updated>
   <id>https://chargoyao.github.io/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>es2020新特性</title>
+    <link href="https://chargoyao.github.io/2020/10/13/es2020/"/>
+    <id>https://chargoyao.github.io/2020/10/13/es2020/</id>
+    <published>2020-10-12T16:52:57.000Z</published>
+    <updated>2020-10-13T15:18:41.300Z</updated>
+    
+    <content type="html"><![CDATA[<p>自从2015年发布了ES6之后，每年TC39都会发布新版的ECMA规范，ECMA2020是发布的第十一个ECMA版本。</p><h1 id="globalThis"><a href="#globalThis" class="headerlink" title="globalThis"></a>globalThis</h1><p>如今的javascript语言几乎无所不能，从web端到后端到客户端都能通吃。不同的环境使用的是不一样的对象。<br>比如：浏览器使用的是window，nodejs使用的是global，而Service Worker使用的是self。而现在一般的做法都会通过一个通用函数来判断不同平台。<br>新的ECMA2020中，则将此全局对象统一收敛为<code>globalThis</code>；</p><h1 id="Promise-allSettled"><a href="#Promise-allSettled" class="headerlink" title="Promise.allSettled()"></a>Promise.allSettled()</h1><p>Promose.allSettled()返回一个promise,此方法的参数为一个数组的promise，数组中的每一个promise无论是resolve还是reject，Promise.allSettled()都将进入resovle状态，其then参数为函数status属性的对象。<br>如下：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> p1 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> res(<span class="string">&#x27;one&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> p2 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res, rej</span>) =&gt;</span> rej(<span class="string">&#x27;two&#x27;</span>));</span><br><span class="line"><span class="keyword">const</span> p3 = <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> res(<span class="string">&#x27;three&#x27;</span>));</span><br><span class="line"></span><br><span class="line"><span class="built_in">Promise</span>.allSettled([p1, p2, p3]).then(<span class="function"><span class="params">data</span> =&gt;</span> <span class="built_in">console</span>.log(data));</span><br></pre></td></tr></table></figure><p>打印如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[</span><br><span class="line">  &#123;</span><br><span class="line">    status: &#39;fulfilled&#39;, value: &#39;one&#39;, </span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    status: &#39;rejected&#39;, value: &#39;two&#39;, </span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    status: &#39;fulfilled&#39;, value: &#39;three&#39;, </span><br><span class="line">  &#125;</span><br><span class="line">]</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>#Nullish联合操作符<br>Nullish联合操作符主要用在对象属性的读取上。类似于&amp;&amp;和||操作符，当操作符的左边为null或者undefined的时候，返回操作符右边的结果。<br>如下：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> data = &#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> name = data.name ?? <span class="string">&quot;chargo&quot;</span>; <span class="comment">// chargo</span></span><br><span class="line"></span><br><span class="line">data = &#123;<span class="attr">name</span>: <span class="string">&#x27;yao&#x27;</span>&#125;;</span><br><span class="line"></span><br><span class="line">name = data.name ?? <span class="string">&#x27;yao&#x27;</span>; <span class="comment">// name为yao</span></span><br></pre></td></tr></table></figure><h1 id="Optional-Chaining-Operator"><a href="#Optional-Chaining-Operator" class="headerlink" title="Optional Chaining Operator"></a>Optional Chaining Operator</h1><p>通常读取嵌套对象属性值的时候都需要先判断是否是null或者undefined。然后在进行进一步的代码执行(比如值的读取)。<br>比如：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读取DOM</span></span><br><span class="line"><span class="keyword">const</span> ele = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;input[name=age]&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> val = ele &amp;&amp; ele.value;</span><br><span class="line"></span><br></pre></td></tr></table></figure><p>在es2020中有了Optional Chaining Operator你可以这么写：</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> val = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;input[name=age]&#x27;</span>)?.value;</span><br></pre></td></tr></table></figure><p>如上如果操作符?.左侧返回的是null或者undefined的话将不会执行操作符右侧值的读取。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;自从2015年发布了ES6之后，每年TC39都会发布新版的ECMA规范，ECMA2020是发布的第十一个ECMA版本。&lt;/p&gt;
+&lt;h1 id=&quot;globalThis&quot;&gt;&lt;a href=&quot;#globalThis&quot; class=&quot;headerlink&quot; title=&quot;globa</summary>
+      
+    
+    
+    
+    <category term="javascript" scheme="https://chargoyao.github.io/categories/javascript/"/>
+    
+    
+    <category term="es2020" scheme="https://chargoyao.github.io/tags/es2020/"/>
+    
+  </entry>
   
   <entry>
     <title>react useEffect</title>
